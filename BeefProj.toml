@@ -23,3 +23,13 @@ PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/dist/x64/Release/*.dll\")"]
 [Configs.Release.Win32]
 LibPaths = ["$(ProjectDir)/dist/x86/Release/raylib.lib"]
 PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/dist/x86/Release/*.dll\")"]
+
+[Configs.Debug.macOS]
+BeefLibType = "Static"
+LibPaths = ["$(ProjectDir)/dist/x86/Debug/raylib.lib"]
+PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/dist/x86/Debug/*.a\")"]
+
+[Configs.Release.macOS]
+BeefLibType = "Static"
+LibPaths = ["$(ProjectDir)/dist/x86/Release/raylib.lib"]
+PostBuildCmds = ["CopyToDependents(\"$(ProjectDir)/dist/x86/Release/*.a\")"]

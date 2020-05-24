@@ -49,7 +49,7 @@ namespace raylib_beef.Types
 
 		public String ToString()
 		{
-			return new String..AppendF("{} {} {} {}", r, g, b, a);
+			return new String()..AppendF("{} {} {} {}", r, g, b, a);
 		}
 	}
 }

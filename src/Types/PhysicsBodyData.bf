@@ -7,7 +7,11 @@ namespace raylib_beef.Types
 	[CRepr]
 	public struct PhysicsBodyData {
 	    public uint16 id;                            	   // Reference unique identifier
+#if BF_PLATFORM_WINDOWS
 	    public Windows.IntBool enabled;                    // Enabled dynamics state (collisions are calculated anyway)
+#else
+		public bool enabled;
+#endif
 	    public Vector2 position;                           // Physics body shape pivot
 	    public Vector2 velocity;                           // Current linear velocity applied to position
 	    public Vector2 force;                              // Current linear force (reset to 0 every step)
@@ -21,9 +25,15 @@ namespace raylib_beef.Types
 	    public float staticFriction;                       // Friction when the body has not movement (0 to 1)
 	    public float dynamicFriction;                      // Friction when the body has movement (0 to 1)
 	    public float restitution;                          // Restitution coefficient of the body (0 to 1)
+#if BF_PLATFORM_WINDOWS
 	    public Windows.IntBool useGravity;                 // Apply gravity force to dynamics
 	    public Windows.IntBool isGrounded;                 // Physics grounded on other body state
 	    public Windows.IntBool freezeOrient;               // Physics rotation constraint
+#else
+	    public bool useGravity;                 // Apply gravity force to dynamics
+	    public bool isGrounded;                 // Physics grounded on other body state
+	    public bool freezeOrient;               // Physics rotation constraint
+#endif
 	    public PhysicsShape shape;                         // Physics body shape information (type, radius, vertices, normals)
 	}
 
